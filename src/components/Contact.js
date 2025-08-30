@@ -70,7 +70,7 @@ export default function Contact({ onPhone, onEmail, onLinkedIn }) {
 
     try {
       // Using a reliable email service (Web3Forms - free tier)
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch('https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

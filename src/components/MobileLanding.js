@@ -41,7 +41,7 @@ export default function MobileLanding() {
                 height: 120, 
                 mx: 'auto',
                 mb: 3,
-                border: '4px solid #1a237e',
+                border: '4px solidrgb(126, 54, 26)',
                 boxShadow: '0 4px 20px rgba(0,0,0,0.15)'
               }}
             />
@@ -75,7 +75,7 @@ export default function MobileLanding() {
                 sx={{ 
                   borderColor: '#1a237e',
                   color: '#1a237e',
-                  '&:hover': { borderColor: '#0d47a1', bgcolor: 'rgba(26, 35, 126, 0.04)' }
+                  '&:hover': { borderColor: '#0d47a1', bgcolor: 'rgba(202, 204, 228, 0.04)' }
                 }}
               >
                 View Projects
@@ -91,7 +91,7 @@ export default function MobileLanding() {
               <CardContent sx={{ textAlign: 'center', py: 2 }}>
                 <LocationOnIcon sx={{ fontSize: 40, color: '#1a237e', mb: 1 }} />
                 <Typography variant="body2" color="text.secondary">
-                  Mysore, Karnataka
+                  chiterdruga, Karnataka
                 </Typography>
               </CardContent>
             </Card>
@@ -131,7 +131,7 @@ export default function MobileLanding() {
               </Button>
               <Button
                 component="a"
-                href="https:"www.linkedin.com/in/harsha-p-2247aa374' "
+                href="https:" www.linkedin.com/in/harsha-p-2247aa374 "
                 target="_blank"
                 variant="outlined"
                 startIcon={<LinkedInIcon />}
