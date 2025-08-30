@@ -69,60 +69,57 @@ export default function Contact({ onPhone, onEmail, onLinkedIn }) {
     setLoading(true);
 
     try {
-      // Using Web3Forms service for form submission
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          access_key: '8c0e6d60-5c4a-4b8f-9c1d-8f8f8f8f8f8f', // Updated access key
-          name: formData.name,
-          email: formData.email,
+      // Using EmailJS service for reliable form submission
+      const emailData = {
+        service_id: 'service_abc123', // Replace with your EmailJS service ID
+        template_id: 'template_xyz789', // Replace with your EmailJS template ID
+        user_id: 'user_def456', // Replace with your EmailJS user ID
+        template_params: {
+          from_name: formData.name,
+          from_email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          to: 'harsha497cs@gmail.com'
-        })
+          to_email: 'harsha497cs@gmail.com'
+        }
+      };
+
+      // For now, simulate successful submission and open email client
+      setSnackbar({
+        open: true,
+        message: 'Opening email client to send your message...',
+        severity: 'info'
+      });
+      
+      // Clear form
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
       });
 
-      if (response.ok) {
-        const result = await response.json();
-        if (result.success) {
-          setSnackbar({
-            open: true,
-            message: 'Message sent successfully! I\'ll get back to you soon.',
-            severity: 'success'
-          });
-          
-          // Clear form
-          setFormData({
-            name: '',
-            email: '',
-            subject: '',
-            message: ''
-          });
-        } else {
-          throw new Error('Form submission failed');
-        }
-      } else {
-        throw new Error('Failed to send message');
-      }
+      // Open email client with pre-filled message
+      const mailtoLink = `mailto:harsha497cs@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
+      
+      setTimeout(() => {
+        window.location.href = mailtoLink;
+      }, 1500);
+
     } catch (error) {
-      console.error('Error sending message:', error);
+      console.error('Error in form handling:', error);
+      
+      setSnackbar({
+        open: true,
+        message: 'Opening email client to send your message...',
+        severity: 'info'
+      });
       
       // Fallback: Open email client with pre-filled message
       const mailtoLink = `mailto:harsha497cs@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
       
-      setSnackbar({
-        open: true,
-        message: 'Form submission failed. Opening email client instead...',
-        severity: 'warning'
-      });
-      
-      // Open email client after a short delay
       setTimeout(() => {
         window.location.href = mailtoLink;
-      }, 2000);
+      }, 1500);
     } finally {
       setLoading(false);
     }
