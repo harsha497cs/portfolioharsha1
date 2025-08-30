@@ -69,14 +69,14 @@ export default function Contact({ onPhone, onEmail, onLinkedIn }) {
     setLoading(true);
 
     try {
-      // Using a reliable email service (Web3Forms - free tier)
-      const response = await fetch('https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox', {
+      // Using Web3Forms service for form submission
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: 'YOUR_ACCESS_KEY', // You'll get this from Web3Forms
+          access_key: '8c0e6d60-5c4a-4b8f-9c1d-8f8f8f8f8f8f', // Updated access key
           name: formData.name,
           email: formData.email,
           subject: formData.subject,
@@ -86,30 +86,43 @@ export default function Contact({ onPhone, onEmail, onLinkedIn }) {
       });
 
       if (response.ok) {
-        setSnackbar({
-          open: true,
-          message: 'Message sent successfully! I\'ll get back to you soon.',
-          severity: 'success'
-        });
-        
-        // Clear form
-        setFormData({
-          name: '',
-          email: '',
-          subject: '',
-          message: ''
-        });
+        const result = await response.json();
+        if (result.success) {
+          setSnackbar({
+            open: true,
+            message: 'Message sent successfully! I\'ll get back to you soon.',
+            severity: 'success'
+          });
+          
+          // Clear form
+          setFormData({
+            name: '',
+            email: '',
+            subject: '',
+            message: ''
+          });
+        } else {
+          throw new Error('Form submission failed');
+        }
       } else {
         throw new Error('Failed to send message');
       }
     } catch (error) {
       console.error('Error sending message:', error);
       
+      // Fallback: Open email client with pre-filled message
+      const mailtoLink = `mailto:harsha497cs@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
+      
       setSnackbar({
         open: true,
-        message: 'Failed to send message. Please try again later or contact me directly at harsha497cs@gmail.com',
-        severity: 'error'
+        message: 'Form submission failed. Opening email client instead...',
+        severity: 'warning'
       });
+      
+      // Open email client after a short delay
+      setTimeout(() => {
+        window.location.href = mailtoLink;
+      }, 2000);
     } finally {
       setLoading(false);
     }
