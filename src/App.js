@@ -97,7 +97,7 @@ function App() {
       <Drawer
         onSelect={(id) => scrollToSection(id)}
         activeSection={activeSection}
-        profile={{ name: 'harsha p', role: 'Frontend Developer', avatarUrl: '/IMG_20250323_232827.jpg' }}
+        profile={{ name: 'harsha p', role: 'Frontend Developer', avatarUrl: '/IMG1.jpg' }}
         width={320}
         mobileOpen={mobileOpen}
         onClose={handleDrawerToggle}
@@ -134,9 +134,9 @@ function App() {
         {/* Contact Section */}
         <div data-section="contact">
           <Contact
-            onPhone={() => (window.location.href = 'tel:+91 9986919988')}
-            onEmail={() => (window.location.href = 'mailto:nischalk762@gmail.com')}
-            onLinkedIn={() => window.open('https://www.linkedin.com/in/nischal-k-122899374', '_blank', 'noopener,noreferrer')}
+            onPhone={() => (window.location.href = 'tel:+91 9880339147')}
+            onEmail={() => (window.location.href = 'mailto:harsha497cs@gmail.com')}
+            onLinkedIn={() => window.open('https://www.linkedin.com/in/harsha-p-2247aa374', '_blank', 'noopener,noreferrer')}
           />
         </div>
       </div>

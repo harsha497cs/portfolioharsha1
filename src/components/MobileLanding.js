@@ -46,7 +46,7 @@ export default function MobileLanding() {
               }}
             />
             <Typography variant="h4" sx={{ fontWeight: 800, color: '#1a237e', mb: 1 }}>
-              Nischal K
+              harsha p
             </Typography>
             <Typography variant="h6" color="text.secondary" sx={{ mb: 2 }}>
               Frontend Developer
@@ -101,7 +101,7 @@ export default function MobileLanding() {
               <CardContent sx={{ textAlign: 'center', py: 2 }}>
                 <PhoneIcon sx={{ fontSize: 40, color: '#1a237e', mb: 1 }} />
                 <Typography variant="body2" color="text.secondary">
-                  +91 9986919988
+                  +91 9880339147
                 </Typography>
               </CardContent>
             </Card>
@@ -117,7 +117,7 @@ export default function MobileLanding() {
             <Box sx={{ display: 'flex', justifyContent: 'center', gap: 3 }}>
               <Button
                 component="a"
-                href="https://github.com/Nischal123rcb"
+                href="https://github.com/harsha497c' },
                 target="_blank"
                 variant="outlined"
                 startIcon={<GitHubIcon />}
@@ -131,7 +131,7 @@ export default function MobileLanding() {
               </Button>
               <Button
                 component="a"
-                href="https://www.linkedin.com/in/nischal-k-122899374"
+                href="https:"www.linkedin.com/in/harsha-p-2247aa374' "
                 target="_blank"
                 variant="outlined"
                 startIcon={<LinkedInIcon />}
@@ -145,7 +145,7 @@ export default function MobileLanding() {
               </Button>
               <Button
                 component="a"
-                href="mailto:nischalk762@gmail.com"
+                href="mailto:harsha497cs@gmail.com"
                 variant="outlined"
                 startIcon={<MailOutlineIcon />}
                 sx={{ 
@@ -169,7 +169,7 @@ export default function MobileLanding() {
             </Typography>
             <Button
               component="a"
-              href="https://wa.me/919986919988"
+              href="https://wa.me/9880339147"
               target="_blank"
               variant="contained"
               size="large"
