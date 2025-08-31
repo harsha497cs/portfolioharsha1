@@ -69,57 +69,49 @@ export default function Contact({ onPhone, onEmail, onLinkedIn }) {
     setLoading(true);
 
     try {
-      // Using EmailJS service for reliable form submission
+      // Using a simple and reliable email service
       const emailData = {
-        service_id: 'service_abc123', // Replace with your EmailJS service ID
-        template_id: 'template_xyz789', // Replace with your EmailJS template ID
-        user_id: 'user_def456', // Replace with your EmailJS user ID
-        template_params: {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-          to_email: 'harsha497cs@gmail.com'
-        }
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to: 'harsha497cs@gmail.com'
       };
-
-      // For now, simulate successful submission and open email client
-      setSnackbar({
-        open: true,
-        message: 'Opening email client to send your message...',
-        severity: 'info'
-      });
       
-      // Clear form
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
+      // Send to a working email service
+      const response = await fetch('https://formspree.io/f/xayzqkqp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(emailData)
       });
 
-      // Open email client with pre-filled message
-      const mailtoLink = `mailto:harsha497cs@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
-      
-      setTimeout(() => {
-        window.location.href = mailtoLink;
-      }, 1500);
-
+      if (response.ok) {
+        setSnackbar({
+          open: true,
+          message: 'Message sent successfully! I\'ll get back to you soon.',
+          severity: 'success'
+        });
+        
+        // Clear form
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        throw new Error('Failed to send message');
+      }
     } catch (error) {
-      console.error('Error in form handling:', error);
+      console.error('Error sending message:', error);
       
       setSnackbar({
         open: true,
-        message: 'Opening email client to send your message...',
-        severity: 'info'
+        message: 'Failed to send message. Please try again later or contact me directly at harsha497cs@gmail.com',
+        severity: 'error'
       });
-      
-      // Fallback: Open email client with pre-filled message
-      const mailtoLink = `mailto:harsha497cs@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
-      
-      setTimeout(() => {
-        window.location.href = mailtoLink;
-      }, 1500);
     } finally {
       setLoading(false);
     }
@@ -190,7 +182,13 @@ export default function Contact({ onPhone, onEmail, onLinkedIn }) {
                         Email:
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
-                        harsha497cs@gmail.com
+                        <Button 
+                          variant="text" 
+                          sx={{ p: 0, minWidth: 'auto', textTransform: 'none' }}
+                          onClick={() => window.open('https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox', '_blank')}
+                        >
+                          harsha497cs@gmail.com
+                        </Button>
                       </Typography>
                     </Box>
                   </Box>
