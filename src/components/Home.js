@@ -18,7 +18,7 @@ export default function Home() {
   
   // Background image(s)
   const backgroundImages = [
-    '/frontend-handbook-bg.jpg'
+    '/futuristic-dev-bg.jpg'
   ];
   
   // Role switcher effect
