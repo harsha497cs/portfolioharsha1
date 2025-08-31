@@ -136,7 +136,7 @@ export default function Home() {
             fontWeight: 800, 
             mb: 2,
             color: 'white',
-            textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
+            textShadow: '2px 2px 4px rgba(180, 20, 20, 0.5)',
             minHeight: { xs: '2rem', sm: '2.5rem' },
             display: 'flex',
             alignItems: 'center',
@@ -163,7 +163,7 @@ export default function Home() {
             fontWeight: 800, 
             mt: 1,
             color: 'white',
-            textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
+            textShadow: '2px 2px 4px rgba(106, 242, 76, 0.5)',
             minHeight: { xs: '2.5rem', sm: '3.5rem' },
             display: 'flex',
             alignItems: 'center',
@@ -190,7 +190,7 @@ export default function Home() {
             fontWeight: 800, 
             mt: 1,
             color: 'white',
-            textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
+            textShadow: '2px 2px 4px rgba(247, 3, 141, 0.5)',
             minHeight: { xs: '2.5rem', sm: '3.5rem' },
             display: 'flex',
             alignItems: 'center',
@@ -214,7 +214,7 @@ export default function Home() {
           sx={{ 
             mt: 1.5,
             color: 'white',
-            textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
+            textShadow: '1px 1px 2px rgba(225, 245, 9, 0.5)',
             fontSize: { xs: '0.9rem', sm: '1.1rem' },
             px: { xs: 1, sm: 0 }
           }}
