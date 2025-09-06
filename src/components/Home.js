@@ -18,8 +18,8 @@ export default function Home() {
   
   // Background image(s)
   const backgroundImages = [
-    '/code-editor-bg.jpg'
-  ];
+  'background.jpeg',
+];
   
   // Role switcher effect
   useEffect(() => {
