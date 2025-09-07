@@ -32,6 +32,16 @@ function App() {
     setMobileOpen(!mobileOpen);
   };
 
+  const handleDownloadResume = () => {
+    // Create a link element to download the resume
+    const link = document.createElement('a');
+    link.href = '/harsha_resume.pdf';
+    link.download = 'harsha_resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   React.useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'about', 'projects', 'contact'];
@@ -121,7 +131,7 @@ function App() {
             name="harsha"
             role="Frontend Developer"
             onContact={() => scrollToSection('contact')}
-            onDownloadResume={() => console.log('Download resume clicked')}
+            onDownloadResume={handleDownloadResume}
           />
         </div>
 
