@@ -28,7 +28,7 @@ export default function Projects() {
         "Educational Purpose: Built for academic submission under MSBTE guidelines"
       ],
       githubUrl: "https://github.com/harsha497cs/bike-website",
-      // liveUrl: "https://harsha497cs.github.io/bike-website" // Temporarily disabled
+      liveUrl: "https://harsha497cs.github.io/bike-website"
     }
   ];
 
