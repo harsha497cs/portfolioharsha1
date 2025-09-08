@@ -25,7 +25,6 @@ Driven by a desire to create meaningful digital experiences, I'm eager to join d
     'UI/UX Design',
   ],
   onContact,
-  onDownloadResume,
 }) {
   return (
     <Box component="section" sx={{ bgcolor: 'background.default', py: { xs: 3, sm: 4, md: 5 } }}>
@@ -62,9 +61,6 @@ Driven by a desire to create meaningful digital experiences, I'm eager to join d
                 disableElevation
               >
                 Contact Me
-              </Button>
-              <Button variant="outlined" color="primary" onClick={onDownloadResume}>
-                Download Resume
               </Button>
             </Stack>
           </Grid>
